@@ -27,7 +27,7 @@
 download our dataset and unzip it in ./data/ directory.
 
 here, we provided the small dataset [Amazon_Instant_Video.tar](https://pan.baidu.com/s/1XegBz-Lq3tew_ktvwG_hTA) for test. the extraction code is 9w4m
-the complete dataset is 3G [Amazon_dataset_complete](https://pan.baidu.com/s/12AQ-Pz_40HpWSsWm1m7KbA). the extraction code is htge
+the complete dataset is 3G [Amazon_dataset_complete](https://pan.baidu.com/s/12AQ-Pz_40HpWSsWm1m7KbA). the extraction code is huge
 
 data directory will like following: 
 
