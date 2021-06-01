@@ -24,7 +24,7 @@ def parameter_parser():
     parser.add_argument("--f_embedding_dim",           type=int,   default=90,                              help="embedding dimension of the graph vertex")
     parser.add_argument("--K",                         type=int,   default=10,                              help="recommending how many items to a user")
     parser.add_argument("--epoch_number",              type=int,   default=40,                              help="number of training epochs")
-    parser.add_argument("--learning_rate",             type=float, default=0.0001,                          help="learning rate")
+    parser.add_argument("--learning_rate",             type=float, default=0.02,                          help="learning rate")
     parser.add_argument("--batch_size",                type=int,   default=32,                              help="batch size")
     parser.add_argument("--optimizer",                 type=str,   default="sgd",                           help="adam, sgd, adadelta, adagrad or RMSprop")
     parser.add_argument("--reg",                       type=float, default=0.0025,                          help="the regular item of the MF model")
@@ -466,9 +466,6 @@ if __name__ == "__main__":
     args = parameter_parser()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("current envirment: " + str(device))
-
-    file_path = './results/' + args.data_path.split('/')[-2]
-    file = open(file_path, 'w')
 
     # (1) building dataset
     data = DataLoader(args.data_path)
