@@ -31,7 +31,7 @@
 download our dataset and unzip it in ./data/ directory.
 
 here, we provided the small dataset [Amazon_Instant_Video.tar](https://pan.baidu.com/s/1XegBz-Lq3tew_ktvwG_hTA) for test. the extraction code is 9w4m
-the complete dataset is 3G [Amazon_dataset_complete](https://pan.baidu.com/s/12AQ-Pz_40HpWSsWm1m7KbA). the extraction code is huge
+the complete dataset is 3G [Amazon_dataset_complete](https://pan.baidu.com/s/1t85gLJayObqmuN7DQJCG4A). the extraction code is q4vt
 
 data directory will like following: 
 
@@ -74,10 +74,11 @@ mv ./data/Amazon_Instant_Video/anchor.ptr ./data/Amazon_Instant_Video/anchor_bes
 python main.py --data_path=./data/Amazon_Instant_Video/ --anchor_model=2 --confidence=0.55 --intervener_learning_rate=0.001 --intervener_reg=0.01 --learning_rate=0.001 --intervener_feature_number=60 --intervener_l1_reg=0.0025          # generate the counterfactual sample and finetune the anchor model(CF-Base)
 ```
 
-## Results
+## Result
 
-![image](https://github.com/CFCF-IJCAI/Counterfactual-Feature-aware-Collaborative-Filtering/blob/master/results.png?raw=true)
+CF-Base for AmazonInstantVideo :  0.088
+CF-Hard for AmazonInstantVideo :  0.097
 
 ## Cases
 
-![image](https://github.com/CFCF-IJCAI/Counterfactual-Feature-aware-Collaborative-Filtering/blob/master/case.png?raw=true)
+Please See the paper.
