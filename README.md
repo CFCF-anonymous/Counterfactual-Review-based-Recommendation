@@ -14,6 +14,7 @@
     |-- data               # the directory of dataset:  the preprocessed Amazon Dataset, please follow the "DataStructure" Step.
     |-- main.py            # the training logic of our CFCF method. change the --anchor_model as 1|2|3|4|5 to change to different logic
     |-- config.py          # config the anchor model type, you can set anchor_type to "ele_add | ele_mul | hybrid | attention", and you can set the number of gpus 
+    |-- data_loader.py     # dataloader of the Amazon Dataset. 
     |-- model              # the model directory. contain anchor model and the intervener model
     |   |-- __init__.py
     |   |-- anchor_model.py # the f model in our paper, Here is the Multiply anchor model
