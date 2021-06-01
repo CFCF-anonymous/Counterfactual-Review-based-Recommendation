@@ -11,17 +11,20 @@
 
     .
     |-- __init__.py
-    |-- data               # the directory of dataset:  the preprocessed Amazon Dataset, please contact xk18@mails.tsinghua.edu.cn to get the dataset
-    |-- data_loader.py     # the dataloader class of our amazon dataset with textual feature 
-    |-- main.py            # the training logic of our CFCF method. change the anchor_model as 1|2|3|4|5 to change to different logic
+    |-- data               # the directory of dataset:  the preprocessed Amazon Dataset, please follow the "DataStructure" Step.
+    |-- main.py            # the training logic of our CFCF method. change the --anchor_model as 1|2|3|4|5 to change to different logic
+    |-- config.py          # config the anchor model type, you can set anchor_type to "ele_add | ele_mul | hybrid | attention", and you can set the number of gpus 
     |-- model              # the model directory. contain anchor model and the intervener model
     |   |-- __init__.py
-    |   |-- anchor_model.py # the f model in our paper
-    |   `-- intervention_model.py # counter factual sample method
-    |-- run_uif_matrix.py  
+    |   |-- anchor_model.py # the f model in our paper, Here is the Multiply anchor model
+    |   |-- intervention_model.py # counter factual sample method
+    |   |-- anchor_hybrid.py # the f model in our paper, Here is the hybrid anchor model
+    |   |-- anchor_attention.py # the f model in our paper, Here is the attention anchor model
+    |   `-- anchor_ele_add.py # the f model in our paper, Here is the ele add anchor model
+    | 
     `-- utils
-        |-- QPC.py
-        `-- eval.py       # inference code 
+        |-- QPC.py    
+        `-- eval.py       # inference code, calculate the metrics of recommendation: NDCG F1 HitRate 
 
 ## Data Structure
 download our dataset and unzip it in ./data/ directory.
@@ -61,11 +64,13 @@ data directory will like following:
 
 2. Unzip the dataset in ./data directory and check every file is exists.
 
-3. Run 
+4. modify the config.py, set the anchor model to what you want. default is "ele_mul" anchor model : CF-mul
+
+4. Run 
 ```
 python main.py --data_path=./data/Amazon_Instant_Video/ --anchor_model=1  # train the anchor model and save it
 mv ./data/Amazon_Instant_Video/anchor.ptr ./data/Amazon_Instant_Video/anchor_best.ptr  # change name of saved model to 'anchor_best.ptr'
-python main.py --data_path=./data/Amazon_Instant_Video/ --anchor_model=2 --confidence=0.55 --intervener_learning_rate=0.001 --intervener_reg=0.01 --learning_rate=0.0001 --intervener_feature_number=60 --intervener_l1_reg=0.0025         # generate the counterfactual sample and finetune the anchor model (Raw CF model)
+python main.py --data_path=./data/Amazon_Instant_Video/ --anchor_model=2 --confidence=0.55 --intervener_learning_rate=0.001 --intervener_reg=0.01 --learning_rate=0.0001 --intervener_feature_number=60 --intervener_l1_reg=0.0025         # generate the counterfactual sample and finetune the anchor model(CF-Base)
 ```
 
 ## Results
