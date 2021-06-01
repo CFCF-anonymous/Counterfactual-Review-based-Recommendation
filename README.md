@@ -70,7 +70,7 @@ data directory will like following:
 ```
 python main.py --data_path=./data/Amazon_Instant_Video/ --anchor_model=1  # train the anchor model and save it
 mv ./data/Amazon_Instant_Video/anchor.ptr ./data/Amazon_Instant_Video/anchor_best.ptr  # change name of saved model to 'anchor_best.ptr'
-python main.py --data_path=./data/Amazon_Instant_Video/ --anchor_model=2 --confidence=0.55 --intervener_learning_rate=0.001 --intervener_reg=0.01 --learning_rate=0.0001 --intervener_feature_number=60 --intervener_l1_reg=0.0025         # generate the counterfactual sample and finetune the anchor model(CF-Base)
+python main.py --data_path=./data/Amazon_Instant_Video/ --anchor_model=2 --confidence=0.55 --intervener_learning_rate=0.001 --intervener_reg=0.01 --learning_rate=0.001 --intervener_feature_number=60 --intervener_l1_reg=0.0025          # generate the counterfactual sample and finetune the anchor model(CF-Base)
 ```
 
 ## Results
